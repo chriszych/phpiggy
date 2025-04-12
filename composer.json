@@ -1,0 +1,18 @@
+{
+    "name": "kriss/phpiggy",
+    "description": "A PHP application for tracking expenses.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Krzysztof Zych",
+            "email": "krzysztof.zych.programista@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        }
+    }
+}
