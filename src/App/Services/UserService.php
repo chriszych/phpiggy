@@ -31,7 +31,8 @@ class UserService
         }
     }
 
-    public function create(array $formData) {
+    public function create(array $formData) 
+    {
         
         $password = password_hash($formData['password'], PASSWORD_BCRYPT, ['cost' => 12]);
         
@@ -47,6 +48,10 @@ class UserService
                 'socialMediaURL' => $formData['socialMediaURL']
             ]
         );
+
+        session_regenerate_id();
+
+        $_SESSION['user'] = $this->db->id();
     }
 
     public function login(array $formData) 
