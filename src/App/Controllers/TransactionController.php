@@ -44,4 +44,21 @@ class TransactionController
         'transaction' => $transaction
       ]);
   }
+
+  public function edit(array $params)
+  {
+     $transaction = $this->transactionService->getUserTransaction(
+      $params['transaction']
+      );
+
+      if(!$transaction){
+        redirectTo('/');
+      }
+
+      $this->validatorService->validateTransaction($_POST);
+
+      $this->transactionService->update($_POST, $transaction['id']);
+
+      redirectTo($_SERVER['HTTP_REFERER']);
+  }
 }
