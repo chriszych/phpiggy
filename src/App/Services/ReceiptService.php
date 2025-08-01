@@ -39,6 +39,14 @@ class ReceiptService
             ]);
         }
 
-        dd($file);
+        $clientMimeType = $file['type'];
+        $allowedMimeTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+
+        if(!in_array($clientMimeType, $allowedMimeTypes)){
+            throw new ValidationException([
+                'receipt' => ['Invalid file type']
+            ]);
+        }
+
     }
 }
