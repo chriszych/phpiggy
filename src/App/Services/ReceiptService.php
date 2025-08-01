@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Framework\Database;
+use Framework\Exceptions\ValidationException;
 
 class ReceiptService 
 {
@@ -15,6 +16,13 @@ class ReceiptService
 
     public function validateFile(?array $file)
     {
+        if(!$file || $file['error'] !== UPLOAD_ERR_OK)
+        {
+            throw new ValidationException([
+                'receipt' => ['Failed to upload the file']
+            ]);
+        }
+        
         dd($file);
     }
 }
