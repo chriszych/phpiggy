@@ -34,6 +34,8 @@ class ReceiptController
       redirectTo("/");
     }
 
+    dd($_FILES);
+
     redirectTo("/");
   }
 }
