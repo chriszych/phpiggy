@@ -31,6 +31,14 @@ class ReceiptService
             ]);
         }
 
+        $originalFileName = $file['name'];
+
+        if(!preg_match('/^[A-Za-z0-9\s._-]+$/', $originalFileName)){
+            throw new ValidationException([
+                'receipt' => ['Invalid filename']
+            ]);
+        }
+
         dd($file);
     }
 }
