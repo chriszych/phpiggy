@@ -23,6 +23,14 @@ class ReceiptService
             ]);
         }
         
+        $maxFileSizeMB = 3 * 1024 * 1204;
+
+        if($file['size'] > $maxFileSizeMB){
+            throw new ValidationException([
+                'receipt' => ['File size is too large']
+            ]);
+        }
+
         dd($file);
     }
 }
