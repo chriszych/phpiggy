@@ -64,6 +64,8 @@ class ReceiptController
         redirectTo('/');
     }
 
+    $this->receiptService->read($receipt);
+
   }
 
   public function delete(array $params)
